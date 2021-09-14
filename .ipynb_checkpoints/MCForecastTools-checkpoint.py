@@ -92,7 +92,7 @@ class MCSimulation:
         # Run the simulation of projecting stock prices 'nSim' number of times
         for n in range(self.nSim):
         
-            if n % 200 == 0:
+            if n % 100 == 0:
                 print(f"Running Monte Carlo simulation number {n}.")
         
             # Create a list of lists to contain the simulated values for each stock
@@ -115,6 +115,8 @@ class MCSimulation:
     
             # Calculate the normalized, cumulative return series
             portfolio_cumulative_returns[n] = (1 + sim_df.fillna(0)).cumprod()
+        
+        print(f"{n} Monte Carlo simulation as instructed is finished.")
         
         # Set attribute to use in plotting
         self.simulated_return = portfolio_cumulative_returns
